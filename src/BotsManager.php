@@ -78,15 +78,16 @@ final class BotsManager
     /**
      * Make the dynamic bot instance.
      *
-     * @param string $name
+     * @param array $params
      *
      * @return Api
      */
-    public function dynamicBot($params)
+    public function dynamicBot(array $params): Api
     {
 
-        $token = array_get($params, 'token');
-        $commands = array_get($params, 'commands', []);
+        $token = data_get($params, 'token');
+        $name =  data_get($params, 'name');
+        $commands = data_get($params, 'commands', []);
 
         $telegram = new Api(
             $token,
@@ -103,6 +104,8 @@ final class BotsManager
 
         // Register Commands
         $telegram->addCommands($commands);
+
+        $this->bots[$name] = $telegram;
 
         return $telegram;
     }

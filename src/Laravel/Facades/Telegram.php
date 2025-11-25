@@ -142,6 +142,7 @@ use Telegram\Bot\BotsManager;
  * @method static bool closeForumTopic(array $params)
  * @method static bool reopenForumTopic(array $params)
  * @method static bool deleteForumTopic(array $params)
+ * @method static \Telegram\Bot\Api dynamicBot(array $params)
  *
  * @see \Telegram\Bot\Commands\CommandBus
  *
